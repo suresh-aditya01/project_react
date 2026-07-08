@@ -55,6 +55,12 @@
 
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('http://localhost:3000', {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+            })
+        })
         let todos = [];
         function renderTodos() {
             const list = document.getElementById('todo-list');
@@ -83,16 +89,16 @@
         }
 
         function addTodo() {
-            let value=document.getElementById('todo-input');
-            let text=value.value;
-           fetch('http://localhost:3000/add-item',{
-            method:'POST',
-            headers: {
-                       'Content-Type': 'application/json'
-                   },
+            let value = document.getElementById('todo-input');
+            let text = value.value;
+            fetch('http://localhost:3000/add-item', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
 
-            body:JSON.stringify({text})
-           });
+                body: JSON.stringify({ text })
+            });
 
         }
 
